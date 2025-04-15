@@ -2,147 +2,147 @@
 const books = [
   {
     title: "The Lightning Thief",
-    authors: "Rick Riordan",
+    mythology: "Greek",
     series: "Percy Jackson & the Olympians",
     publication_date: "2005",
     image_url: "images/1.1.jpg"
   },
   {
     title: "The Sea of Monsters",
-    authors: "Rick Riordan",
+    mythology: "Greek",
     series: "Percy Jackson & the Olympians",
     publication_date: "2006",
     image_url: "images/1.2.jpg"
   },
   {
     title: "The Titan’s Curse",
-    authors: "Rick Riordan",
+    mythology: "Greek",
     series: "Percy Jackson & the Olympians",
     publication_date: "2007",
     image_url: "images/1.3.jpg"
   },
   {
     title: "The Battle of the Labyrinth",
-    authors: "Rick Riordan",
+    mythology: "Greek",
     series: "Percy Jackson & the Olympians",
     publication_date: "2008",
     image_url: "images/1.4.jpg"
   },
   {
     title: "The Last Olympian",
-    authors: "Rick Riordan",
+    mythology: "Greek",
     series: "Percy Jackson & the Olympians",
     publication_date: "2009",
     image_url: "images/1.5.jpg"
   },
   {
     title: "The Lost Hero",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "Heroes of Olympus",
     publication_date: "2010",
     image_url: "images/2.1.jpg"
   },
   {
     title: "The Son of Neptune",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "Heroes of Olympus",
     publication_date: "2011",
     image_url: "images/2.2.jpg"
   },
   {
     title: "The Mark of Athena",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "Heroes of Olympus",
     publication_date: "2012",
     image_url: "images/2.3.jpg"
   },
   {
     title: "The House of Hades",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "Heroes of Olympus",
     publication_date: "2013",
     image_url: "images/2.4.jpg"
   },
   {
     title: "The Blood of Olympus",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "Heroes of Olympus",
     publication_date: "2014",
     image_url: "images/2.5.jpg"
   },
   {
     title: "The Red Pyramid",
-    authors: "Rick Riordan",
+    mythology: "Egyptian",
     series: "The Kane Chronicles",
     publication_date: "2010",
     image_url: "images/3.1.jpg"
   },
   {
     title: "The Throne of Fire",
-    authors: "Rick Riordan",
+    mythology: "Egyptian",
     series: "The Kane Chronicles",
     publication_date: "2011",
     image_url: "images/3.2.jpg"
   },
   {
     title: "The Serpent’s Shadow",
-    authors: "Rick Riordan",
+    mythology: "Egyptian",
     series: "The Kane Chronicles",
     publication_date: "2012",
     image_url: "images/3.3.jpg"
   },
   {
     title: "The Sword of Summer",
-    authors: "Rick Riordan",
+    mythology: "Norse",
     series: "Magnus Chase and the Gods of Asgard",
     publication_date: "2015",
     image_url: "images/4.1.jpg"
   },
   {
     title: "The Hammer of Thor",
-    authors: "Rick Riordan",
+    mythology: "Norse",
     series: "Magnus Chase and the Gods of Asgard",
     publication_date: "2016",
     image_url: "images/4.2.jpg"
   },
   {
     title: "The Ship of the Dead",
-    authors: "Rick Riordan",
+    mythology: "Norse",
     series: "Magnus Chase and the Gods of Asgard",
     publication_date: "2017",
     image_url: "images/4.3.jpg"
   },
   {
     title: "The Hidden Oracle",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "The Trials of Apollo",
     publication_date: "2016",
     image_url: "images/5.1.jpg"
   },
   {
     title: "The Dark Prophecy",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "The Trials of Apollo",
     publication_date: "2017",
     image_url: "images/5.2.jpg"
   },
   {
     title: "The Burning Maze",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "The Trials of Apollo",
     publication_date: "2018",
     image_url: "images/5.3.jpg"
   },
   {
     title: "The Tyrant’s Tomb",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "The Trials of Apollo",
     publication_date: "2019",
     image_url: "images/5.4.jpg"
   },
   {
     title: "The Tower of Nero",
-    authors: "Rick Riordan",
+    mythology: "Greek and Roman",
     series: "The Trials of Apollo",
     publication_date: "2020",
     image_url: "images/5.5.jpg"
@@ -155,10 +155,10 @@ let favorites = [];
 // Update favorite toggle button
 function updateStarButton(button, title) {
   if (favorites.includes(title)) {
-    button.textContent = "⭐ Favorited!";
+    button.textContent = "Favorited!";
     button.style.backgroundColor = "#ffd700";
   } else {
-    button.textContent = "⭐ Add to Favorites";
+    button.textContent = "Add to Favorites";
     button.style.backgroundColor = "";
   }
 }
@@ -189,10 +189,10 @@ function displayBooks(filteredBooks) {
         <img src="${book.image_url}" alt="${book.title} cover" />
         <ul>
           <li>Series: ${book.series}</li>
-          <li>Author: ${book.authors}</li>
+          <li>Mythology: ${book.mythology}</li>
           <li>Published: ${book.publication_date}</li>
         </ul>
-        <button class="star-button">⭐ Add to Favorites</button>
+        <button class="star-button"> Add to Favorites</button>
       </div>
     `;
 
@@ -223,8 +223,7 @@ function renderBooks() {
   // Filter by search query
   if (query) {
     filteredBooks = filteredBooks.filter(book =>
-      book.title.toLowerCase().includes(query) ||
-      book.authors.toLowerCase().includes(query)
+      book.title.toLowerCase().includes(query)
     );
   }
 
