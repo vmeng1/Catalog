@@ -150,44 +150,31 @@ const books = [
 ];
 
 let showFavoritesOnly = false;
-
-
-// This function filters books based on the selected series
-function filterBooks() {
-  const selectedSeries = document.getElementById("series-filter").value;
-  const filteredBooks = selectedSeries
-    ? books.filter((book) => book.series === selectedSeries)
-    : books;
-
-  displayBooks(filteredBooks);
-}
-
-// This function will display books in card format
-function displayBooks(filteredBooks) {
-  const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
-
-  filteredBooks.forEach((book) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    card.innerHTML = `
-      <div class="card-content">
-        <h2>${book.title}</h2>
-        <img src="${book.image_url}" alt="${book.title} Poster" />
-        <ul>
-          <li>Series: ${book.series}</li>
-          <li>Author: ${book.authors}</li>
-          <li>Published: ${book.publication_date}</li>
-        </ul>
-      </div>
-    `;
-
-    cardContainer.appendChild(card);
-  });
-}
 let favorites = [];
 
+// Update favorite toggle button
+function updateStarButton(button, title) {
+  if (favorites.includes(title)) {
+    button.textContent = "⭐ Favorited!";
+    button.style.backgroundColor = "#ffd700";
+  } else {
+    button.textContent = "⭐ Add to Favorites";
+    button.style.backgroundColor = "";
+  }
+}
+
+// Toggle favorite status
+function toggleFavorite(title) {
+  const index = favorites.indexOf(title);
+  if (index === -1) {
+    favorites.push(title);
+  } else {
+    favorites.splice(index, 1);
+  }
+  renderBooks();
+}
+
+// Display books on page
 function displayBooks(filteredBooks) {
   const container = document.getElementById("card-container");
   container.innerHTML = "";
@@ -210,11 +197,8 @@ function displayBooks(filteredBooks) {
     `;
 
     const starBtn = card.querySelector(".star-button");
-
-    // Set initial button state
     updateStarButton(starBtn, book.title);
 
-    // Add listener to toggle favorite
     starBtn.addEventListener("click", () => {
       toggleFavorite(book.title);
       updateStarButton(starBtn, book.title);
@@ -223,28 +207,42 @@ function displayBooks(filteredBooks) {
     container.appendChild(card);
   });
 }
-function toggleFavorite(title) {
-  const index = favorites.indexOf(title);
-  if (index === -1) {
-    favorites.push(title);
-  } else {
-    favorites.splice(index, 1);
+
+// Main render function
+function renderBooks() {
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const selectedSeries = document.getElementById("series-filter").value;
+
+  let filteredBooks = books;
+
+  // Filter by series
+  if (selectedSeries) {
+    filteredBooks = filteredBooks.filter(book => book.series === selectedSeries);
   }
-  console.log("Favorites:", favorites);
+
+  // Filter by search query
+  if (query) {
+    filteredBooks = filteredBooks.filter(book =>
+      book.title.toLowerCase().includes(query) ||
+      book.authors.toLowerCase().includes(query)
+    );
+  }
+
+  // Filter by favorites
+  if (showFavoritesOnly) {
+    filteredBooks = filteredBooks.filter(book => favorites.includes(book.title));
+  }
+
+  displayBooks(filteredBooks);
 }
 
-function updateStarButton(button, title) {
-  if (favorites.includes(title)) {
-    button.textContent = "⭐ Favorited!";
-    button.style.backgroundColor = "#ffd700";
-  } else {
-    button.textContent = "⭐ Add to Favorites";
-    button.style.backgroundColor = "";
-  }
+// Toggle favorites view
+function updateToggleButton() {
+  const toggleBtn = document.getElementById("toggle-favorites");
+  toggleBtn.textContent = showFavoritesOnly ? "Show All Books" : "Show Favorites Only";
 }
 
-
-// This function is called to display books initially
+// Set up listeners on page load
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("toggle-favorites").addEventListener("click", () => {
     showFavoritesOnly = !showFavoritesOnly;
@@ -252,34 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBooks();
   });
 
-
+  document.getElementById("series-filter").addEventListener("change", renderBooks);
+  document.getElementById("search-input").addEventListener("input", renderBooks);
 
   updateToggleButton();
-
   renderBooks();
 });
-
-function updateToggleButton() {
-  const toggleBtn = document.getElementById("toggle-favorites");
-  toggleBtn.textContent = showFavoritesOnly ? "Show All Books" : "Show Favorites Only";
-}
-
-function filterBooks() {
-  renderBooks();
-}
-function renderBooks() {
-  const selectedSeries = document.getElementById("series-filter").value;
-
-  let filteredBooks = books;
-
-  if (selectedSeries) {
-    filteredBooks = filteredBooks.filter(book => book.series === selectedSeries);
-  }
-
-  if (showFavoritesOnly) {
-    filteredBooks = filteredBooks.filter(book => favorites.includes(book.title));
-  }
-
-
-  displayBooks(filteredBooks);
-}
