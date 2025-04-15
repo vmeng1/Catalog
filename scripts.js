@@ -5,91 +5,91 @@ const books = [
     authors: "Rick Riordan",
     series: "Percy Jackson & the Olympians",
     publication_date: "2005",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.1.jpg"
+    image_url: "images/1.1.jpg"
   },
   {
     title: "The Sea of Monsters",
     authors: "Rick Riordan",
     series: "Percy Jackson & the Olympians",
     publication_date: "2006",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.2.jpg"
+    image_url: "images/1.2.jpg"
   },
   {
     title: "The Titan’s Curse",
     authors: "Rick Riordan",
     series: "Percy Jackson & the Olympians",
     publication_date: "2007",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.3.jpg"
+    image_url: "images/1.3.jpg"
   },
   {
     title: "The Battle of the Labyrinth",
     authors: "Rick Riordan",
     series: "Percy Jackson & the Olympians",
     publication_date: "2008",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.4.jpg"
+    image_url: "images/1.4.jpg"
   },
   {
     title: "The Last Olympian",
     authors: "Rick Riordan",
     series: "Percy Jackson & the Olympians",
     publication_date: "2009",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.5.jpg"
+    image_url: "images/1.5.jpg"
   },
   {
     title: "The Lost Hero",
     authors: "Rick Riordan",
     series: "Heroes of Olympus",
     publication_date: "2010",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.1.jpg"
+    image_url: "images/2.1.jpg"
   },
   {
     title: "The Son of Neptune",
     authors: "Rick Riordan",
     series: "Heroes of Olympus",
     publication_date: "2011",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.2.jpg"
+    image_url: "images/2.2.jpg"
   },
   {
     title: "The Mark of Athena",
     authors: "Rick Riordan",
     series: "Heroes of Olympus",
     publication_date: "2012",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.3.jpg"
+    image_url: "images/2.3.jpg"
   },
   {
     title: "The House of Hades",
     authors: "Rick Riordan",
     series: "Heroes of Olympus",
     publication_date: "2013",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.4.jpg"
+    image_url: "images/2.4.jpg"
   },
   {
     title: "The Blood of Olympus",
     authors: "Rick Riordan",
     series: "Heroes of Olympus",
     publication_date: "2014",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.5.jpg"
+    image_url: "images/2.5.jpg"
   },
   {
     title: "The Red Pyramid",
     authors: "Rick Riordan",
     series: "The Kane Chronicles",
     publication_date: "2010",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/3.1.jpg"
+    image_url: "images/3.1.jpg"
   },
   {
     title: "The Throne of Fire",
     authors: "Rick Riordan",
     series: "The Kane Chronicles",
     publication_date: "2011",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/3.2.jpg"
+    image_url: "images/3.2.jpg"
   },
   {
     title: "The Serpent’s Shadow",
     authors: "Rick Riordan",
     series: "The Kane Chronicles",
     publication_date: "2012",
-    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/3.3.jpg"
+    image_url: "images/3.3.jpg"
   },
   {
     title: "The Sword of Summer",
@@ -116,45 +116,41 @@ const books = [
     title: "The Hidden Oracle",
     authors: "Rick Riordan",
     series: "The Trials of Apollo",
-    average_rating: 4.17,
-    num_pages: 376,
-    publisher: "Disney Hyperion",
     publication_date: "2016",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/91h5kZ6S9eL.jpg"
+    image_url: "images/5.1.jpg"
   },
   {
     title: "The Dark Prophecy",
     authors: "Rick Riordan",
     series: "The Trials of Apollo",
     publication_date: "2017",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/91On+Fvm5lL.jpg"
+    image_url: "images/5.2.jpg"
   },
   {
     title: "The Burning Maze",
     authors: "Rick Riordan",
     series: "The Trials of Apollo",
     publication_date: "2018",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/91J9zkkhs3L.jpg"
+    image_url: "images/5.3.jpg"
   },
   {
     title: "The Tyrant’s Tomb",
     authors: "Rick Riordan",
     series: "The Trials of Apollo",
     publication_date: "2019",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/91R-PWAvJcL.jpg"
+    image_url: "images/5.4.jpg"
   },
   {
-    title: "The Final Trial",
+    title: "The Tower of Nero",
     authors: "Rick Riordan",
     series: "The Trials of Apollo",
     publication_date: "2020",
-    image_url: "https://images-na.ssl-images-amazon.com/images/I/81KPz3Lf-YL.jpg"
+    image_url: "images/5.5.jpg"
   },
 ];
 
 let showFavoritesOnly = false;
-let sortByYear = false;
-//ADD SORT BY YEAR
+
 
 // This function filters books based on the selected series
 function filterBooks() {
@@ -256,14 +252,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBooks();
   });
 
-  document.getElementById("sort-by-year").addEventListener("click", () => {
-    sortByYear = !sortByYear;
-    updateSortButton();
-    renderBooks();
-  });
+
 
   updateToggleButton();
-  updateSortButton();
+
   renderBooks();
 });
 
@@ -271,10 +263,7 @@ function updateToggleButton() {
   const toggleBtn = document.getElementById("toggle-favorites");
   toggleBtn.textContent = showFavoritesOnly ? "Show All Books" : "Show Favorites Only";
 }
-function updateSortButton() {
-  const btn = document.getElementById("sort-by-year");
-  btn.textContent = sortByYear ? "Sort by Default Order" : "Sort by Year";
-}
+
 function filterBooks() {
   renderBooks();
 }
@@ -291,13 +280,6 @@ function renderBooks() {
     filteredBooks = filteredBooks.filter(book => favorites.includes(book.title));
   }
 
-  if (sortByYear) {
-    filteredBooks.sort((a, b) => {
-      const yearA = parseInt(a.publication_date);
-      const yearB = parseInt(b.publication_date);
-      return yearA - yearB;
-    });
-  }
 
   displayBooks(filteredBooks);
 }
