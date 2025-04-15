@@ -151,7 +151,7 @@ const books = [
 let showFavoritesOnly = false;
 let favorites = [];
 
-// Update favorite button on each card
+// Change color up favorite button
 function updateStarButton(button, title) {
   if (favorites.includes(title)) {
     button.textContent = "Favorited!";
@@ -162,7 +162,7 @@ function updateStarButton(button, title) {
   }
 }
 
-// Toggle favorite status (add/remove)
+// Adds/Removes book for favriote array
 function toggleFavorite(title) {
   const index = favorites.indexOf(title);
   if (index === -1) {
@@ -173,7 +173,7 @@ function toggleFavorite(title) {
   renderBooks();
 }
 
-// Toggle favorites view (Show all or favorites only)
+// Toggle favorites view (Show all book or favorites only)
 function updateToggleButton() {
   const toggleBtn = document.getElementById("toggle-favorites");
   if (showFavoritesOnly) {
@@ -219,7 +219,7 @@ function displayBooks(filteredBooks) {
   });
 }
 
-// Main render function to apply filters
+// Filters display based on series, favorites and title search
 function renderBooks() {
   const query = document.getElementById("search-input").value.toLowerCase();
   const selectedSeries = document.getElementById("series-filter").value;
@@ -231,7 +231,7 @@ function renderBooks() {
     filteredBooks = filteredBooks.filter(book => book.series === selectedSeries);
   }
 
-  // Filter by search query
+  // Filter by searching title
   if (query) {
     filteredBooks = filteredBooks.filter(book =>
       book.title.toLowerCase().includes(query)
