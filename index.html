@@ -14,23 +14,30 @@
       <h1 class="title">Rick Riordan's Mythology Books</h1>
     </header>
 
-    <div class="filter-container">
-      <label for="series-filter">Filter by Series:</label>
-      <select id="series-filter" onchange="filterBooks()">
-        <option value="">All Books</option>
-        <option value="Percy Jackson & the Olympians">Percy Jackson & the Olympians</option>
-        <option value="Heroes of Olympus">Heroes of Olympus</option>
-        <option value="The Kane Chronicles">The Kane Chronicles</option>
-        <option value="Magnus Chase and the Gods of Asgard">Magnus Chase and the Gods of Asgard</option>
-        <option value="The Trials of Apollo">The Trials of Apollo</option>
-      </select>
-    </div>
-    <div class="favorites-toggle">
-      <button id="toggle-favorites">Show Favorites Only</button>
-    </div>
-    <div class="search-container">
-      <label for="search-input">Search Books:</label>
-      <input type="text" id="search-input" placeholder="Enter book title" oninput="searchBooks()" />
+    <div class="controls">
+      <!-- Search Books -->
+      <div class="search-container">
+        <label for="search-input">Search Books:</label>
+        <input type="text" id="search-input" placeholder="Enter book title" oninput="searchBooks()" />
+      </div>
+      <!-- Filter by Series -->
+      <div class="filter-container">
+        <label for="series-filter">Filter by Series:</label>
+        <select id="series-filter" onchange="filterBooks()">
+          <option value="">All Books</option>
+          <option value="Percy Jackson & the Olympians">Percy Jackson & the Olympians</option>
+          <option value="Heroes of Olympus">Heroes of Olympus</option>
+          <option value="The Kane Chronicles">The Kane Chronicles</option>
+          <option value="Magnus Chase and the Gods of Asgard">Magnus Chase and the Gods of Asgard</option>
+          <option value="The Trials of Apollo">The Trials of Apollo</option>
+        </select>
+      </div>
+
+      <!-- Favorites Toggle -->
+      <div class="favorites-toggle">
+        <button id="toggle-favorites">Show Favorites Only</button>
+      </div>
+
     </div>
     <div id="card-container" class="card-container"></div>
   </body>

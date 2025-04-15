@@ -148,22 +148,21 @@ const books = [
     image_url: "images/5.5.jpg"
   },
 ];
-
 let showFavoritesOnly = false;
 let favorites = [];
 
-// Update favorite toggle button
+// Update favorite button on each card
 function updateStarButton(button, title) {
   if (favorites.includes(title)) {
     button.textContent = "Favorited!";
-    button.style.backgroundColor = "#ffd700";
+    button.style.backgroundColor = "#ffd700";  // Change to yellow when favorited
   } else {
     button.textContent = "Add to Favorites";
-    button.style.backgroundColor = "";
+    button.style.backgroundColor = "";  // Reset to default when not favorited
   }
 }
 
-// Toggle favorite status
+// Toggle favorite status (add/remove)
 function toggleFavorite(title) {
   const index = favorites.indexOf(title);
   if (index === -1) {
@@ -172,6 +171,18 @@ function toggleFavorite(title) {
     favorites.splice(index, 1);
   }
   renderBooks();
+}
+
+// Toggle favorites view (Show all or favorites only)
+function updateToggleButton() {
+  const toggleBtn = document.getElementById("toggle-favorites");
+  if (showFavoritesOnly) {
+    toggleBtn.textContent = "Show All Books";
+    toggleBtn.classList.add("favorited");  // Add 'favorited' class to button
+  } else {
+    toggleBtn.textContent = "Show Favorites Only";
+    toggleBtn.classList.remove("favorited");  // Remove 'favorited' class from button
+  }
 }
 
 // Display books on page
@@ -192,7 +203,7 @@ function displayBooks(filteredBooks) {
           <li>Mythology: ${book.mythology}</li>
           <li>Published: ${book.publication_date}</li>
         </ul>
-        <button class="star-button"> Add to Favorites</button>
+        <button class="star-button">Add to Favorites</button>
       </div>
     `;
 
@@ -208,7 +219,7 @@ function displayBooks(filteredBooks) {
   });
 }
 
-// Main render function
+// Main render function to apply filters
 function renderBooks() {
   const query = document.getElementById("search-input").value.toLowerCase();
   const selectedSeries = document.getElementById("series-filter").value;
@@ -235,23 +246,19 @@ function renderBooks() {
   displayBooks(filteredBooks);
 }
 
-// Toggle favorites view
-function updateToggleButton() {
-  const toggleBtn = document.getElementById("toggle-favorites");
-  toggleBtn.textContent = showFavoritesOnly ? "Show All Books" : "Show Favorites Only";
-}
-
-// Set up listeners on page load
+// Set up event listeners and initial state
 document.addEventListener("DOMContentLoaded", () => {
+  // Toggle favorites button logic
   document.getElementById("toggle-favorites").addEventListener("click", () => {
     showFavoritesOnly = !showFavoritesOnly;
     updateToggleButton();
     renderBooks();
   });
 
+  // Series filter and search logic
   document.getElementById("series-filter").addEventListener("change", renderBooks);
   document.getElementById("search-input").addEventListener("input", renderBooks);
 
-  updateToggleButton();
-  renderBooks();
+  updateToggleButton();  // Initialize the toggle button's state
+  renderBooks();  // Render the initial list of books
 });
