@@ -1,5 +1,4 @@
 # SEA Stage 2 - Data Catalog Project
-Vivian Meng
 
 This repository contains the instructions, requirements, and starter code for Stage Two of the Snap Engineering Academy application process.
 

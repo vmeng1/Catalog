@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick Riordan Books Catalog</title>
+    <meta name="description" content="A Catalog of Rick Riordan's Books" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="scripts.js" defer></script>
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">Rick Riordan's Books</h1>
     </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
-      </div>
+
+    <div class="filter-container">
+      <label for="series-filter">Filter by Series:</label>
+      <select id="series-filter" onchange="filterBooks()">
+        <option value="">All Books</option>
+        <option value="Percy Jackson & the Olympians">Percy Jackson & the Olympians</option>
+        <option value="Heroes of Olympus">Heroes of Olympus</option>
+        <option value="The Kane Chronicles">The Kane Chronicles</option>
+        <option value="Magnus Chase and the Gods of Asgard">Magnus Chase and the Gods of Asgard</option>
+        <option value="The Trials of Apollo">The Trials of Apollo</option>
+      </select>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
+    <div class="favorites-toggle">
+      <button id="toggle-favorites">Show Favorites Only</button>
     </div>
+    <div class="sort-container">
+      <button id="sort-by-year">Sort by Year</button>
+    </div>
+    
+
+    <div id="card-container" class="card-container"></div>
   </body>
 </html>

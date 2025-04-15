@@ -1,97 +1,303 @@
-/**
- * Data Catalog Project Starter Code - SEA Stage 2
- *
- * This file is where you should be doing most of your work. You should
- * also make changes to the HTML and CSS files, but we want you to prioritize
- * demonstrating your understanding of data structures, and you'll do that
- * with the JavaScript code you write in this file.
- *
- * The comments in this file are only to help you learn how the starter code
- * works. The instructions for the project are in the README. That said, here
- * are the three things you should do first to learn about the starter code:
- * - 1 - Change something small in index.html or style.css, then reload your
- *    browser and make sure you can see that change.
- * - 2 - On your browser, right click anywhere on the page and select
- *    "Inspect" to open the browser developer tools. Then, go to the "console"
- *    tab in the new window that opened up. This console is where you will see
- *    JavaScript errors and logs, which is extremely helpful for debugging.
- *    (These instructions assume you're using Chrome, opening developer tools
- *    may be different on other browsers. We suggest using Chrome.)
- * - 3 - Add another string to the titles array a few lines down. Reload your
- *    browser and observe what happens. You should see a fourth "card" appear
- *    with the string you added to the array, but a broken image.
- *
- */
-
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
+// Array of books by Rick Riordan
+const books = [
+  {
+    title: "The Lightning Thief",
+    authors: "Rick Riordan",
+    series: "Percy Jackson & the Olympians",
+    publication_date: "2005",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.1.jpg"
+  },
+  {
+    title: "The Sea of Monsters",
+    authors: "Rick Riordan",
+    series: "Percy Jackson & the Olympians",
+    publication_date: "2006",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.2.jpg"
+  },
+  {
+    title: "The Titan’s Curse",
+    authors: "Rick Riordan",
+    series: "Percy Jackson & the Olympians",
+    publication_date: "2007",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.3.jpg"
+  },
+  {
+    title: "The Battle of the Labyrinth",
+    authors: "Rick Riordan",
+    series: "Percy Jackson & the Olympians",
+    publication_date: "2008",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.4.jpg"
+  },
+  {
+    title: "The Last Olympian",
+    authors: "Rick Riordan",
+    series: "Percy Jackson & the Olympians",
+    publication_date: "2009",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/1.5.jpg"
+  },
+  {
+    title: "The Lost Hero",
+    authors: "Rick Riordan",
+    series: "Heroes of Olympus",
+    publication_date: "2010",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.1.jpg"
+  },
+  {
+    title: "The Son of Neptune",
+    authors: "Rick Riordan",
+    series: "Heroes of Olympus",
+    publication_date: "2011",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.2.jpg"
+  },
+  {
+    title: "The Mark of Athena",
+    authors: "Rick Riordan",
+    series: "Heroes of Olympus",
+    publication_date: "2012",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.3.jpg"
+  },
+  {
+    title: "The House of Hades",
+    authors: "Rick Riordan",
+    series: "Heroes of Olympus",
+    publication_date: "2013",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.4.jpg"
+  },
+  {
+    title: "The Blood of Olympus",
+    authors: "Rick Riordan",
+    series: "Heroes of Olympus",
+    publication_date: "2014",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/2.5.jpg"
+  },
+  {
+    title: "The Red Pyramid",
+    authors: "Rick Riordan",
+    series: "The Kane Chronicles",
+    publication_date: "2010",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/3.1.jpg"
+  },
+  {
+    title: "The Throne of Fire",
+    authors: "Rick Riordan",
+    series: "The Kane Chronicles",
+    publication_date: "2011",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/3.2.jpg"
+  },
+  {
+    title: "The Serpent’s Shadow",
+    authors: "Rick Riordan",
+    series: "The Kane Chronicles",
+    publication_date: "2012",
+    image_url: "/Users/vivianmeng/Desktop/Snap/Catalog/stage-2-SEA-Project/images/3.3.jpg"
+  },
+  {
+    title: "The Sword of Summer",
+    authors: "Rick Riordan",
+    series: "Magnus Chase and the Gods of Asgard",
+    publication_date: "2015",
+    image_url: "images/4.1.jpg"
+  },
+  {
+    title: "The Hammer of Thor",
+    authors: "Rick Riordan",
+    series: "Magnus Chase and the Gods of Asgard",
+    publication_date: "2016",
+    image_url: "images/4.2.jpg"
+  },
+  {
+    title: "The Ship of the Dead",
+    authors: "Rick Riordan",
+    series: "Magnus Chase and the Gods of Asgard",
+    publication_date: "2017",
+    image_url: "images/4.3.jpg"
+  },
+  {
+    title: "The Hidden Oracle",
+    authors: "Rick Riordan",
+    series: "The Trials of Apollo",
+    average_rating: 4.17,
+    num_pages: 376,
+    publisher: "Disney Hyperion",
+    publication_date: "2016",
+    image_url: "https://images-na.ssl-images-amazon.com/images/I/91h5kZ6S9eL.jpg"
+  },
+  {
+    title: "The Dark Prophecy",
+    authors: "Rick Riordan",
+    series: "The Trials of Apollo",
+    publication_date: "2017",
+    image_url: "https://images-na.ssl-images-amazon.com/images/I/91On+Fvm5lL.jpg"
+  },
+  {
+    title: "The Burning Maze",
+    authors: "Rick Riordan",
+    series: "The Trials of Apollo",
+    publication_date: "2018",
+    image_url: "https://images-na.ssl-images-amazon.com/images/I/91J9zkkhs3L.jpg"
+  },
+  {
+    title: "The Tyrant’s Tomb",
+    authors: "Rick Riordan",
+    series: "The Trials of Apollo",
+    publication_date: "2019",
+    image_url: "https://images-na.ssl-images-amazon.com/images/I/91R-PWAvJcL.jpg"
+  },
+  {
+    title: "The Final Trial",
+    authors: "Rick Riordan",
+    series: "The Trials of Apollo",
+    publication_date: "2020",
+    image_url: "https://images-na.ssl-images-amazon.com/images/I/81KPz3Lf-YL.jpg"
+  },
 ];
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
 
-// This function adds cards the page to display the data in the array
-function showCards() {
+let showFavoritesOnly = false;
+let sortByYear = false;
+//ADD SORT BY YEAR
+
+// This function filters books based on the selected series
+function filterBooks() {
+  const selectedSeries = document.getElementById("series-filter").value;
+  const filteredBooks = selectedSeries
+    ? books.filter((book) => book.series === selectedSeries)
+    : books;
+
+  displayBooks(filteredBooks);
+}
+
+// This function will display books in card format
+function displayBooks(filteredBooks) {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
+  filteredBooks.forEach((book) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
-    }
+    card.innerHTML = `
+      <div class="card-content">
+        <h2>${book.title}</h2>
+        <img src="${book.image_url}" alt="${book.title} Poster" />
+        <ul>
+          <li>Series: ${book.series}</li>
+          <li>Author: ${book.authors}</li>
+          <li>Published: ${book.publication_date}</li>
+        </ul>
+      </div>
+    `;
 
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
+    cardContainer.appendChild(card);
+  });
+}
+let favorites = [];
+
+function displayBooks(filteredBooks) {
+  const container = document.getElementById("card-container");
+  container.innerHTML = "";
+
+  filteredBooks.forEach((book) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+      <div class="card-content">
+        <h2>${book.title}</h2>
+        <img src="${book.image_url}" alt="${book.title} cover" />
+        <ul>
+          <li>Series: ${book.series}</li>
+          <li>Author: ${book.authors}</li>
+          <li>Published: ${book.publication_date}</li>
+        </ul>
+        <button class="star-button">⭐ Add to Favorites</button>
+      </div>
+    `;
+
+    const starBtn = card.querySelector(".star-button");
+
+    // Set initial button state
+    updateStarButton(starBtn, book.title);
+
+    // Add listener to toggle favorite
+    starBtn.addEventListener("click", () => {
+      toggleFavorite(book.title);
+      updateStarButton(starBtn, book.title);
+    });
+
+    container.appendChild(card);
+  });
+}
+function toggleFavorite(title) {
+  const index = favorites.indexOf(title);
+  if (index === -1) {
+    favorites.push(title);
+  } else {
+    favorites.splice(index, 1);
+  }
+  console.log("Favorites:", favorites);
+}
+
+function updateStarButton(button, title) {
+  if (favorites.includes(title)) {
+    button.textContent = "⭐ Favorited!";
+    button.style.backgroundColor = "#ffd700";
+  } else {
+    button.textContent = "⭐ Add to Favorites";
+    button.style.backgroundColor = "";
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
-  card.style.display = "block";
 
-  const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+// This function is called to display books initially
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("toggle-favorites").addEventListener("click", () => {
+    showFavoritesOnly = !showFavoritesOnly;
+    updateToggleButton();
+    renderBooks();
+  });
 
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  document.getElementById("sort-by-year").addEventListener("click", () => {
+    sortByYear = !sortByYear;
+    updateSortButton();
+    renderBooks();
+  });
 
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+  updateToggleButton();
+  updateSortButton();
+  renderBooks();
+});
+
+function updateToggleButton() {
+  const toggleBtn = document.getElementById("toggle-favorites");
+  toggleBtn.textContent = showFavoritesOnly ? "Show All Books" : "Show Favorites Only";
 }
-
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!"
-  );
+function updateSortButton() {
+  const btn = document.getElementById("sort-by-year");
+  btn.textContent = sortByYear ? "Sort by Default Order" : "Sort by Year";
 }
+function filterBooks() {
+  renderBooks();
+}
+function renderBooks() {
+  const selectedSeries = document.getElementById("series-filter").value;
 
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
+  let filteredBooks = books;
+
+  if (selectedSeries) {
+    filteredBooks = filteredBooks.filter(book => book.series === selectedSeries);
+  }
+
+  if (showFavoritesOnly) {
+    filteredBooks = filteredBooks.filter(book => favorites.includes(book.title));
+  }
+
+  if (sortByYear) {
+    filteredBooks.sort((a, b) => {
+      const yearA = parseInt(a.publication_date);
+      const yearB = parseInt(b.publication_date);
+      return yearA - yearB;
+    });
+  }
+
+  displayBooks(filteredBooks);
 }
